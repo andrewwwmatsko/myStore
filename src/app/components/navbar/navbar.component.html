@@ -8,6 +8,12 @@
         <ng-container *ngIf="userLoged">
           <li><a routerLink="shop">Shop</a></li>
           <li><a routerLink="account">My Account</a></li>
+          <li><a routerLink="cart">
+            
+            <div *ngIf="ordersTotal > 0 ">
+              {{ordersTotal}}
+            </div>
+          </a></li>
           <li><a routerLink="aboutUs">About Us</a></li>
           <li><a (click)="logOut()">Log Out</a></li>
         </ng-container>

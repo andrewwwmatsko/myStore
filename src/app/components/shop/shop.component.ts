@@ -11,6 +11,7 @@ import { AuthService } from '../../services/auth.service'
 export class ShopComponent implements OnInit {
   modeView='list'
   items:any
+  user:any
 
 
   constructor(private itemsService:ItemsService,
@@ -20,6 +21,9 @@ export class ShopComponent implements OnInit {
         this.items=res
       })
 
+      this.authSevice.userData.subscribe( res => {
+        this.user=res
+      })
 
    }
 
@@ -27,7 +31,7 @@ export class ShopComponent implements OnInit {
   }
 
   addToCartHandler(item) {
-    this.dbs.addToCardDB(this.authSevice.userId,item)
+    this.dbs.addToCardDB(this.authSevice.userId,item, this.user)
   }
 
 

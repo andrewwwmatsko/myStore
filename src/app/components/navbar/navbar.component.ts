@@ -12,11 +12,16 @@ export class NavbarComponent implements OnInit {
 
   userLoged:boolean = false
   isInnitialized: boolean=false
+  ordersTotal: any;
 
   ngOnInit(): void {
     this.authSevice.userData.subscribe(user=>{
       this.userLoged = user !== null ? true : false;
       this.isInnitialized=true
+
+      this.ordersTotal= Object.values(user.orderedItems).length > 0 ? Object.values(user.orderedItems).reduce((a:number,b:number) => {
+        return a + b
+      }): 0
     })
 
 

@@ -49,13 +49,13 @@ export class AuthService {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(response => {
       this.dataStorage.addUserData(response.user.uid, {email, phone, date, userName})
-      // Swal.fire({
-      //   text:'Account is created ',
-      //   icon:'success',
-      //   possition:'top-top',
-      //   showConfiguration:false,
-      //   timer:1500
-      // })
+      Swal.fire({
+        text:'Account is created ',
+        icon:'success',
+        possition:'top-top',
+        showConfiguration:false,
+        timer:1500
+      })
     })
     .catch(err => {
       console.log(err.message)
@@ -70,13 +70,13 @@ export class AuthService {
 
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(response => {
-      // Swal.fire({
-      //   text:'You just logged in',
-      //   icon:'success',
-      //   possition:'top-top',
-      //   showConfiguration:false,
-      //   timer:1500
-      // })
+      Swal.fire({
+        text:'You just logged in',
+        icon:'success',
+        possition:'top-top',
+        showConfiguration:false,
+        timer:1500
+      })
       this.router.navigate(['home'])
     })
     .catch(err => {

@@ -25,6 +25,7 @@ import { from } from 'rxjs';
 import { HomeComponent } from './components/home/home.component';
 import { MyAccoutComponent } from './components/my-accout/my-accout.component';
 import { ItemsComponent } from './components/shop/items/items.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes=[
   {
@@ -48,6 +49,10 @@ const routes=[
     component:MyAccoutComponent
   },
   {
+    path: 'cart',
+    component:CartComponent
+  },
+  {
     path:'home',
     component:HomeComponent
   }
@@ -64,6 +69,7 @@ const routes=[
     HomeComponent,
     MyAccoutComponent,
     ItemsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

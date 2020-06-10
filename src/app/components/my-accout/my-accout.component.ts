@@ -56,9 +56,24 @@ export class MyAccoutComponent implements OnInit {
     this.editModeEnabled=null
   }
   cancelChangesHandler() {
-    
+    this.fillForm(this.user)
     this.editModeEnabled=null
   }
   
-
+  fillForm (user) {
+    this.user=user
+    const {
+      userName,
+      phone,
+      date,
+      email
+    }=user
+    this.userForm.setValue({
+      userName:userName,
+      phone:phone,
+      date:date,
+      email:email
+    })
+  }
+  
 }
