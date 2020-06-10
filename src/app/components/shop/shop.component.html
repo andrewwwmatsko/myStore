@@ -1,1 +1,15 @@
-<p>shop works!</p>
+<div>
+
+    <a (click)="changeView('grid')"
+    class="waves-effect waves-light btn"><i class="material-icons left">dashboard</i>Grid</a>
+
+    <a (click)="changeView('list')"
+    class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>List</a>
+    
+    <div [ngClass]="modeView" *ngFor="let item of items">
+        <app-items [item]="item"
+        (addItemToCartEvent)="addToCartHandler($event)"></app-items>
+    </div>
+
+
+</div>

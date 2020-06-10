@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationGroup.valueChanges.subscribe((form) => {
-      console.log(form)
+      // console.log(form)
     })
   }
 
@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
   }
   
   onSubmit() {
-    console.log(this.registrationGroup.value)
+    // console.log(this.registrationGroup.value)
   }
 
 

@@ -5,8 +5,9 @@
       class="right hide-on-med-and-down"
       *ngIf="isInnitialized">
 
-        <ng-container *ngIf="userLoged; else loading">
+        <ng-container *ngIf="userLoged">
           <li><a routerLink="shop">Shop</a></li>
+          <li><a routerLink="account">My Account</a></li>
           <li><a routerLink="aboutUs">About Us</a></li>
           <li><a (click)="logOut()">Log Out</a></li>
         </ng-container>
@@ -16,8 +17,6 @@
           <li><a routerLink="register">Sign Up</a></li>
         </ng-container>
       </ul>
-      <ng-template #loading>
-        ...Loading
-      </ng-template>
+
     </div>
   </nav>

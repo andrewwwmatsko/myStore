@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginGroup.valueChanges.subscribe(form => {
-      console.log(form)
+      // console.log(form)
     })
 
     
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit() {
-    console.log(this.loginGroup.value)
+    // console.log(this.loginGroup.value)
   }
 
 }

@@ -3,8 +3,10 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { Router } from '@angular/router'
 import { AngularFirestore } from '@angular/fire/firestore'
 import {DataStorageService} from './data-storage.service'
-import { pipe, of } from 'rxjs'
-import { switchMap} from 'rxjs/operators'
+import { pipe, of, from } from 'rxjs'
+import { switchMap,} from 'rxjs/operators'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 
 
 @Injectable({
@@ -12,6 +14,7 @@ import { switchMap} from 'rxjs/operators'
 })
 export class AuthService {
   userData:any
+  userId:string
 
   constructor(
     private afAuth:AngularFireAuth,
@@ -22,14 +25,14 @@ export class AuthService {
      this.userData= this.afAuth.authState.pipe(
         switchMap(user => {
           if (user) {
+            this.userId=user.uid
             return this.afStore.doc(`users/${user.uid}`).valueChanges()
           } else {
             return of(null)
           }
         })
       );
-
-      this.userData.subscribe(console.log)
+     
 
      }
 
@@ -46,6 +49,13 @@ export class AuthService {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(response => {
       this.dataStorage.addUserData(response.user.uid, {email, phone, date, userName})
+      // Swal.fire({
+      //   text:'Account is created ',
+      //   icon:'success',
+      //   possition:'top-top',
+      //   showConfiguration:false,
+      //   timer:1500
+      // })
     })
     .catch(err => {
       console.log(err.message)
@@ -60,7 +70,14 @@ export class AuthService {
 
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(response => {
-      console.log('logged in')
+      // Swal.fire({
+      //   text:'You just logged in',
+      //   icon:'success',
+      //   possition:'top-top',
+      //   showConfiguration:false,
+      //   timer:1500
+      // })
+      this.router.navigate(['home'])
     })
     .catch(err => {
       console.log(err.message)

@@ -11,6 +11,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,6 +23,8 @@ import { ShopComponent } from './components/shop/shop.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { from } from 'rxjs';
 import { HomeComponent } from './components/home/home.component';
+import { MyAccoutComponent } from './components/my-accout/my-accout.component';
+import { ItemsComponent } from './components/shop/items/items.component';
 
 const routes=[
   {
@@ -39,7 +44,11 @@ const routes=[
     component:ShopComponent
   },
   {
-    path:'',
+    path:'account',
+    component:MyAccoutComponent
+  },
+  {
+    path:'home',
     component:HomeComponent
   }
 ]
@@ -53,6 +62,8 @@ const routes=[
     ShopComponent,
     AboutUsComponent,
     HomeComponent,
+    MyAccoutComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,

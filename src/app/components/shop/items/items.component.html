@@ -1,0 +1,16 @@
+<div class="row"  [ngClass]="modeView">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img [src]= "item.photoUrl">
+          <span class="card-title">{{ item.name }}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"
+          (click)="addToCart()"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>{{ item.description }}</p>
+          <strong> {{ item.price | currency}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
